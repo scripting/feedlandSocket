@@ -1,0 +1,12 @@
+{
+	"name": "feedlandsocket",
+	"description": "A demo app that connects to FeedLand's websocket feature.",
+	"author": "Dave Winer <dave@scripting.com>",
+	"main": "feedlandsocket.js",
+	"license": "MIT",
+	"version": "0.4.0",
+	"dependencies" : {
+		"daveutils": "*",
+		"websocket": "*"
+		} 
+	}
