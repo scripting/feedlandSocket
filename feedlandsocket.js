@@ -1,11 +1,11 @@
-const myVersion = "0.4.0", myProductName = "feedlandSocket"; 
+const myVersion = "0.4.1", myProductName = "feedlandSocket"; 
 
 const fs = require ("fs");
 const utils = require ("daveutils");
-const websocket = require ('websocket').w3cwebsocket;
+const websocket = require ("websocket").w3cwebsocket;
 
 var config = {
-	urlSocketServer: "ws://feedland.org:1466/" 
+	urlSocketServer: "wss://feedland.org/" //4/18/23 by DW 
 	};
 
 function wsConnectUserToServer (itemReceivedCallback) {
@@ -47,5 +47,5 @@ function wsConnectUserToServer (itemReceivedCallback) {
 	}
 
 wsConnectUserToServer (function (thePayload) {
-	console.log (new Date ().toLocaleTimeString () + ": " + thePayload.theFeed.title);
+	console.log (new Date ().toLocaleTimeString () + ": title == " + thePayload.theFeed.title + ", feedUrl == " + thePayload.theFeed.feedUrl);
 	});
