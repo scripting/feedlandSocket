@@ -1,0 +1,12 @@
+{
+	"name": "demo",
+	"description": "An app that demo's feedlandsocket package.",
+	"author": "Dave Winer <dave@scripting.com>",
+	"main": "demo.js",
+	"license": "MIT",
+	"version": "0.4.0",
+	"dependencies" : {
+		"daveutils": "*",
+		"feedlandsocket": "*"
+		} 
+	}

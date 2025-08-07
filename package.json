@@ -1,12 +1,22 @@
 {
 	"name": "feedlandsocket",
-	"description": "A demo app that connects to FeedLand's websocket feature.",
+	"description": "A package and demo app that connects to FeedLand's websocket feature.",
 	"author": "Dave Winer <dave@scripting.com>",
 	"main": "feedlandsocket.js",
 	"license": "MIT",
-	"version": "0.4.1",
+	"version": "0.5.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/scripting/feedlandSocket.git"
+		},
+	"files": [
+		"feedlandsocket.js",
+		"demo.js",
+		"readme.md",
+		"worknotes.md"
+		],
 	"dependencies" : {
 		"daveutils": "*",
-		"websocket": "*"
+		"ws": "*"
 		} 
 	}
