@@ -20,5 +20,9 @@ Download the repo, run <i>NPM install</i> in the folder and then run the app.
 
 Every time FeedLand finds a new item, you'll see a message over the websocket pipe with a payload that includes the item and information about the feed it came from. 
 
-I recorded a <a href="https://www.youtube.com/watch?v=_Q-ks3uytZI">video demo</a> showing what it looks like if you'd like to see before downloading and running the software. Also includes random commentary from your humble programmer. :-)
+### Video demo
+
+I recorded a <a href="https://www.youtube.com/watch?v=_Q-ks3uytZI">video demo</a> showing what it looks like if you'd like to see before downloading and running the software. 
+
+Also includes random commentary from your humble programmer. :-)
 
