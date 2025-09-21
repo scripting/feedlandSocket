@@ -1,0 +1,46 @@
+body {
+	background-color: white;
+	}
+.divPageBody {
+	width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 400px;
+	min-height: 400px;
+	font-family: Arial, sans-serif;
+	font-size: 24px;
+	}
+
+.divTitle {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	}
+.divJsonTextarea {
+	width: 100%;
+	height: 400px;
+	font-family: "Ubuntu";
+	font-size: 15px;
+	line-height: 140%;
+	border: 1px solid #ccc;
+	padding: 10px;
+	background: white;
+	white-space: pre;
+	overflow-x: auto;
+	word-wrap: normal;
+	tab-size: 6;
+	}
+.divLineBelowText {
+	font-size: 14px;
+	margin-top: -5px;
+	}
+
+/* styles for phone, tablet */
+	@media screen and (max-width: 1024px) {
+		.divPageBody {
+			width: 95%;
+			margin-top: 80px;
+			}
+		}
+	
