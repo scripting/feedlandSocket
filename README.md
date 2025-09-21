@@ -14,7 +14,7 @@ This service is also available to applications running in any environment that s
 
 Here's the <a href="http://scripting.com/code/feedlandsocket/demos/browser/index.html">demo app</a> that runs in the browser. 
 
-<img src="https://imgs.scripting.com/2025/09/21/socketScreenShot.png">
+<img src="https://imgs.scripting.com/2025/09/21/socketScreen2.png">
 
 You'll see a series of JSON packets flow through a box on the screen.
 
