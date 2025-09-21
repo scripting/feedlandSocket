@@ -1,8 +1,6 @@
 # feedlandSocket
 
-A Node.js package that connects to FeedLand's websocket interface. 
-
-Your app can get notifications for new and updated feed items.
+Connects with a FeedLand instance, getting a complete set of new items and updates of feeds as it reads them.
 
 ### Background
 
@@ -10,15 +8,23 @@ While FeedLand is reading feeds, it's sending a constant stream of JavaScript ob
 
 This is how it updates feeds in realtime. 
 
-This service is also available to applications running in any environment that supports the W3C standard websockets.
+This service is also available to applications running in any environment that supports the standard websockets.
 
-### How to use
+### Watch it run
 
-Download the repo, run <i>NPM install</i> in the folder and then run the app.
+Here's the <a href="http://scripting.com/code/feedlandsocket/demos/browser/index.html">demo app</a> that runs in the browser. 
 
-`node demo.js`
+<img src="https://imgs.scripting.com/2025/09/21/socketScreenShot.png">
 
-Every time FeedLand finds a new item, you'll see a message over the websocket pipe with a payload that includes the item and information about the feed it came from. 
+You'll see a series of JSON packets flow through a box on the screen.
+
+Open the JavaScript console for more info.
+
+### What's in the repo
+
+A Node.js package that connects to FeedLand's websocket interface. 
+
+Demo apps for hooking into the socket connection from a browser or from a Node app.
 
 ### Video demo
 
