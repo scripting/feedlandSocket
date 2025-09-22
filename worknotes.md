@@ -10,11 +10,11 @@ Changes to the socket demo app.
 
 * We display the address of the socket server. If you click on the address a dialog appears asking for the new address. Enter the new address carefully because you must get it exactly right. Here are the addresses of three servers you can try out: 
 
-1. wss://feedland.org/
+   1. wss://feedland.org/
 
-2. wss://feedland.social/
+   2. wss://feedland.social/
 
-3. wss://feedland.com:443/_ws/
+   3. wss://feedland.com:443/_ws/
 
 #### 9/21/25; 11:00:54 AM by DW
 
