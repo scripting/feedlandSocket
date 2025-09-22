@@ -1,3 +1,21 @@
+#### 9/22/25; 10:05:32 AM by DW
+
+Changes to the socket demo app.
+
+* Cname for the demo page: <a href="https://socketdemo.feedland.org/">socketdemo.feedland.org</a>.
+
+* Time units shouldn't have fractions, so 2.1 seconds should become 2 seconds.
+
+* Let the user enter the domain for the FeedLand server. 
+
+* We display the address of the socket server. If you click on the address a dialog appears asking for the new address. Enter the new address carefully because you must get it exactly right. Here are the addresses of three servers you can try out: 
+
+* wss://feedland.org/
+
+* wss://feedland.social/
+
+* wss://feedland.com:443/_ws/
+
 #### 9/21/25; 11:00:54 AM by DW
 
 There's a new example app that runs in the browser. It's time to publish the code via the repo. There's still work to do, but we have to get this out now. 

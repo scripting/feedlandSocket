@@ -4,15 +4,44 @@ const appConsts = {
 	catname: "socketdemo",
 	}
 
+var appPrefs = {
+	urlFeedlandSocket: undefined
+	}
+
+
+
 var myFeedland = undefined;
 
 const whenStart = new Date ();
 var ctMessagesReceived = 0;
+var flPrefsChanged = false;
 
+function loadPrefs () { //9/22/25 by DW
+	if (localStorage.socketdemo !== undefined) {
+		try {
+			const jstruct = JSON.parse (localStorage.socketdemo);
+			for (var x in jstruct) {
+				appPrefs [x] = jstruct [x];
+				}
+			}
+		catch (err) {
+			}
+		}
+	}
+function prefsChanged () {
+	flPrefsChanged = true;
+	}
+function savePrefs () {
+	localStorage.socketdemo = jsonStringify (appPrefs);
+	}
+function getFeedlandAddress () {
+	const theAddress = (appPrefs.urlFeedlandSocket === undefined) ? appConsts.urlFeedlandSocket : appPrefs.urlFeedlandSocket;
+	return (theAddress);
+	}
 function howLongSince (when) {
 	const secs = secondsSince (when), secsInMinute = 60, secsInHour = secsInMinute * 60, secsInDay = 24 * secsInHour;
 	function round (num) {
-		return (Math.round (num * 10) / 10)
+		return (Math.round (num))
 		}
 	if (secs < secsInMinute) {
 		return (round (secs) + " seconds");
@@ -101,17 +130,43 @@ function feedlandSockets (userOptions) { //9/6/25 by DW
 	}
 
 function startup () {
+	console.log ("startup: appPrefs == " + jsonStringify (appPrefs));
+	loadPrefs ();
+	
 	function everySecond () {
 		const items = (ctMessagesReceived == 1) ? "item" : "items";
 		$(".spCount").html (ctMessagesReceived + " new feed " + items + " received.");
 		$(".spHowLong").text (howLongSince (whenStart))
+		if (flPrefsChanged) {
+			savePrefs ();
+			flPrefsChanged = false;
+			}
 		}
 	const options = {
-		urlFeedlandSocket: appConsts.urlFeedlandSocket,
+		urlFeedlandSocket: getFeedlandAddress (), //9/22/25 by DW
 		}
 	myFeedland = new feedlandSockets (options); 
 	
 	ctMessagesReceived = 0;
+	
+	$(".spFeedlandServer").text (getFeedlandAddress ());
+	$(".spFeedlandServer").click (function () {
+		console.log ("click");
+		
+		askDialog ("Address of FeedLand socket server:", appPrefs.urlFeedlandSocket, "", function (url, flcancel) {
+			if (!flcancel) {
+				if (beginsWith (url, "wss://")) {
+					appPrefs.urlFeedlandSocket = url;
+					$(".spFeedlandServer").text (url);
+					savePrefs (); //must save immediately
+					location.reload (); 
+					}
+				else {
+					alertDialog ("Can't set the socket server because it must begin with wss://.");
+					}
+				}
+			});
+		});
 	
 	self.setInterval (everySecond, 1000); 
 	hitCounter (); //9/7/25 by DW

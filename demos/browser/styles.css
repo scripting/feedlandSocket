@@ -30,10 +30,13 @@ body {
 	overflow-x: auto;
 	word-wrap: normal;
 	tab-size: 6;
+	margin-bottom: 5px;
 	}
-.divLineBelowText {
+.divLineBelowText, .divSecondLine {
 	font-size: 14px;
-	margin-top: -5px;
+	}
+.spFeedlandServer {
+	cursor: pointer;
 	}
 
 /* styles for phone, tablet */
