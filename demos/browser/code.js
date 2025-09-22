@@ -1,3 +1,5 @@
+var myVersion = 0.51, myProductName = "socketdemo";
+
 const appConsts = {
 	urlFeedlandSocket: "wss://feedland.com:443/_ws/",
 	screenname: "scripting",
@@ -7,8 +9,6 @@ const appConsts = {
 var appPrefs = {
 	urlFeedlandSocket: undefined
 	}
-
-
 
 var myFeedland = undefined;
 
@@ -64,10 +64,8 @@ function viewJsontext (theObject) {
 	const jsontext = formatJsonWithTabs (theObject);
 	$(".divJsonTextarea").text (jsontext);
 	
-	if (theObject.title !== undefined) {
-		const titlestring = maxStringLength (theObject.title, 60, false, true);
-		$(".divTitle").text (titlestring);
-		}
+	const titlestring = (theObject.title === undefined) ? "&nbsp" : maxStringLength (theObject.title, 60, false, true);
+	$(".divTitle").text (titlestring);
 	
 	}
 

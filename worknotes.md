@@ -14,6 +14,8 @@ Changes to the socket demo app.
 
    3. wss://feedland.com:443/_ws/
 
+* If the title of an item is undefined, erase the title from the previous item. 
+
 #### 9/21/25; 11:00:54 AM by DW
 
 There's a new example app that runs in the browser. It's time to publish the code via the repo. There's still work to do, but we have to get this out now. 
