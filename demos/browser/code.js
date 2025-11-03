@@ -1,4 +1,4 @@
-var myVersion = 0.51, myProductName = "socketdemo";
+var myVersion = 0.52, myProductName = "socketdemo";
 
 const appConsts = {
 	urlFeedlandSocket: "wss://feedland.com:443/_ws/",
@@ -35,7 +35,10 @@ function savePrefs () {
 	localStorage.socketdemo = jsonStringify (appPrefs);
 	}
 function getFeedlandAddress () {
-	const theAddress = (appPrefs.urlFeedlandSocket === undefined) ? appConsts.urlFeedlandSocket : appPrefs.urlFeedlandSocket;
+	var theAddress = getURLParameter ("url");
+	if (theAddress == null) {
+		theAddress = (appPrefs.urlFeedlandSocket === undefined) ? appConsts.urlFeedlandSocket : appPrefs.urlFeedlandSocket;
+		}
 	return (theAddress);
 	}
 function howLongSince (when) {
@@ -133,7 +136,7 @@ function startup () {
 	
 	function everySecond () {
 		const items = (ctMessagesReceived == 1) ? "item" : "items";
-		$(".spCount").html (ctMessagesReceived + " new feed " + items + " received.");
+		$(".spCount").html (ctMessagesReceived + " new " + items + " received.");
 		$(".spHowLong").text (howLongSince (whenStart))
 		if (flPrefsChanged) {
 			savePrefs ();

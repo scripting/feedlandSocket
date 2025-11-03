@@ -34,7 +34,7 @@ function handleMessage (theCommand, thePayload) {
 	}
 
 var config = {
-	urlFeedlandSocket: "wss://feedland.org/" 
+	urlFeedlandSocket: "wss://feedland.com:443/_ws/" //11/3/25 by DW
 	};
 
 utils.readConfig ("config.json", config, function () {
