@@ -2,7 +2,7 @@
 
 Change the default socket server to the one behind feedland.com.
 
-wss://feedland.com:443/_ws/
+
 
 Added new URL param to specify the socket server we'll use. This URL works.
 
