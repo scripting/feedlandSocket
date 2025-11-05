@@ -26,3 +26,15 @@ A Node.js package that connects to FeedLand's websocket interface.
 
 Demo apps for hooking into the socket connection from a browser or from a Node app.
 
+### Philosophy
+
+I think this is the next way news is distributed, a lot simpler than RSS imho. Just open a connection and let the news flow to you. 
+
+You have to be sure the feeds you want are subscribed to on <a href="https://feedland.com">feedland.com</a>, or another FeedLand instance you want to serve as the backend. 
+
+At this point it's a firehose, you get notification of all new items, and updates to items. Over time we probably will have to have more configuration options.
+
+### Plugins wanted
+
+I'd love to see WordPress plugins <a href="http://scripting.com/2025/11/05.html#a131041">devs</a> see what they can do with this. 
+
