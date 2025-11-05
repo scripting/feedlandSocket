@@ -1,3 +1,11 @@
+#### 11/5/25; 8:02:47 AM by DW
+
+If you didn't specify the url of the socket server in the url param for the demo app, it would try to connect to a server at "null."
+
+It worked when you came to the demo app from my blog, but if you got it from the readme here, it wouldn't work.
+
+Need to be more careful Dave. But having a test group there to review each release for stupid mistakes like this would be good too.
+
 #### 11/3/25; 8:04:39 AM by DW
 
 Change the default socket server to the one behind feedland.com.

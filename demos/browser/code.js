@@ -36,7 +36,7 @@ function savePrefs () {
 	}
 function getFeedlandAddress () {
 	var theAddress = getURLParameter ("url");
-	if (theAddress == null) {
+	if (theAddress == "null") {
 		theAddress = (appPrefs.urlFeedlandSocket === undefined) ? appConsts.urlFeedlandSocket : appPrefs.urlFeedlandSocket;
 		}
 	return (theAddress);
@@ -131,8 +131,8 @@ function feedlandSockets (userOptions) { //9/6/25 by DW
 	}
 
 function startup () {
-	console.log ("startup: appPrefs == " + jsonStringify (appPrefs));
 	loadPrefs ();
+	console.log ("startup: appPrefs == " + jsonStringify (appPrefs));
 	
 	function everySecond () {
 		const items = (ctMessagesReceived == 1) ? "item" : "items";
