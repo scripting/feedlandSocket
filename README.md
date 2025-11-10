@@ -12,7 +12,7 @@ This service is also available to applications running in any environment that s
 
 ### Watch it run
 
-Here's the <a href="https://socketdemo.feedland.org/?url=wss://feedland.com:443/_ws/">demo app</a> that runs in the browser. 
+Here's the <a href="https://socketdemo.feedland.com/?url=wss://feedland.com:443/_ws/">demo app</a> that runs in the browser. 
 
 <img src="https://imgs.scripting.com/2025/09/21/socketScreen2.png">
 
