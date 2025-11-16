@@ -71,6 +71,9 @@ function viewJsontext (theObject) {
 	$(".divTitle").text (titlestring);
 	
 	}
+function nowstring () {
+	return (new Date ().toLocaleTimeString ());
+	}
 
 function feedlandSockets (userOptions) { //9/6/25 by DW
 	const socketOptions = {
@@ -113,16 +116,21 @@ function feedlandSockets (userOptions) { //9/6/25 by DW
 			}
 		
 		if (thePayload.item !== undefined) { //debugging
-			if (theCommand == "newItem") {
-				var wpData = "";
-				if (thePayload.item.metadata !== undefined) {
-					if (thePayload.item.metadata.wpSiteId !== undefined) {
-						wpData = thePayload.item.metadata.wpSiteId + "/" + thePayload.item.metadata.wpPostId;
+			switch (theCommand) {
+				case "newItem":
+					var wpData = "";
+					if (thePayload.item.metadata !== undefined) {
+						if (thePayload.item.metadata.wpSiteId !== undefined) {
+							wpData = thePayload.item.metadata.wpSiteId + "/" + thePayload.item.metadata.wpPostId;
+							}
 						}
-					}
-				console.log (`${new Date ().toLocaleTimeString ()} ${theCommand} ${thePayload.item.feedUrl} ${wpData}`);
-				viewJsontext (thePayload.item);
-				ctMessagesReceived++;
+					console.log (`${nowstring ()} ${theCommand} ${thePayload.item.feedUrl} ${wpData}`);
+					viewJsontext (thePayload.item);
+					ctMessagesReceived++;
+					break;
+				case "updatedItem": //11/16/25 by DW
+					console.log (`${nowstring ()} ${theCommand} ${thePayload.item.feedUrl}`);
+					break;
 				}
 			}
 		}
@@ -153,17 +161,25 @@ function startup () {
 	$(".spFeedlandServer").text (getFeedlandAddress ());
 	$(".spFeedlandServer").click (function () {
 		console.log ("click");
-		
+		function useUrl (url) {
+			appPrefs.urlFeedlandSocket = url;
+			$(".spFeedlandServer").text (url);
+			savePrefs (); //must save immediately
+			location.reload (); 
+			}
 		askDialog ("Address of FeedLand socket server:", appPrefs.urlFeedlandSocket, "", function (url, flcancel) {
 			if (!flcancel) {
-				if (beginsWith (url, "wss://")) {
-					appPrefs.urlFeedlandSocket = url;
-					$(".spFeedlandServer").text (url);
-					savePrefs (); //must save immediately
-					location.reload (); 
+				url = trimWhitespace (url);
+				if (url.length == 0) { //11/16/25 by DW
+					useUrl (undefined);
 					}
 				else {
-					alertDialog ("Can't set the socket server because it must begin with wss://.");
+					if (beginsWith (url, "wss://")) {
+						useUrl (url);
+						}
+					else {
+						alertDialog ("Can't set the socket server because it must begin with wss://.");
+						}
 					}
 				}
 			});

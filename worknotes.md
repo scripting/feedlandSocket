@@ -1,3 +1,11 @@
+#### 11/16/25; 10:03:13 AM by DW
+
+I think we may be getting too many update messages. Added a console.log when we receive an updatedItem message, showing the feed it came from. 
+
+* wrote a <a href="https://github.com/scripting/feedlandDev/issues/10">report</a> on feedlanddev.
+
+If the user enters an empty string, set the pref to undefined, so we use the default url when reloading. 
+
 #### 11/5/25; 8:02:47 AM by DW
 
 If you didn't specify the url of the socket server in the url param for the demo app, it would try to connect to a server at "null."
